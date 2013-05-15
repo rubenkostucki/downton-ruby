@@ -11,18 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515163242) do
+ActiveRecord::Schema.define(:version => 20130515192244) do
 
   create_table "aristocrats", :force => true do |t|
     t.string "first_name"
-    t.string "last_name"
+    t.string "surname"
     t.string "email"
+  end
+
+  create_table "clubs", :force => true do |t|
+    t.string "name"
   end
 
   create_table "servants", :force => true do |t|
     t.string  "last_name"
     t.string  "occupation"
     t.integer "age"
+    t.string  "nickname"
   end
 
 end
