@@ -7,9 +7,11 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 
-gem 'guard-rspec'
-gem 'rspec-rails'
-gem 'shoulda-matchers'
+group :development, :test do
+  gem 'guard-rspec'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+end
 
 
 # Gems used only for assets and not required
