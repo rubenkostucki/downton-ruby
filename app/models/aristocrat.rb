@@ -1,5 +1,8 @@
 class Aristocrat < ActiveRecord::Base
 
+
+  has_many :servants
+  has_and_belongs_to_many :club
   attr_protected :first_name, :surname, :email
   validates(:first_name, :surname, :presence => true)
 
@@ -7,4 +10,8 @@ class Aristocrat < ActiveRecord::Base
 
   validates(:email, :format => { :with => /@/ })
 
+
+  def servants(age)
+
+  end
 end

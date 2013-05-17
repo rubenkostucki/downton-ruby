@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe Aristocrat do
 
-  # let(:aristocrat) {Aristocrat.create(:first_name => "Leopold", :surname => "Das-GrosseSchnitzer", :email => "L.Das-GrosseSchnitzer@curryworst.com")}
+  it { should have_and_belong_to_many(:club)}
+  it { should have_many(:servants)}
 
   context 'validates first name exist' do
     it { should validate_presence_of :first_name }
@@ -27,4 +28,8 @@ describe Aristocrat do
   context 'does not validate wrong email format' do
     it { should_not allow_value("google.com").for(:email) }
   end
+
+  # context 'can get all servants over a certain age' do
+  #   it { should}
+  # end
 end

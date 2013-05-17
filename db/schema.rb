@@ -11,13 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515192244) do
+ActiveRecord::Schema.define(:version => 20130516095511) do
 
   create_table "aristocrats", :force => true do |t|
     t.string "first_name"
     t.string "surname"
     t.string "email"
   end
+
+  create_table "aristocrats_clubs", :force => true do |t|
+    t.integer "aristocrat_id"
+    t.integer "club_id"
+  end
+
+  add_index "aristocrats_clubs", ["aristocrat_id"], :name => "index_aristocratsclubs_on_aristocrat_id"
+  add_index "aristocrats_clubs", ["club_id"], :name => "index_aristocratsclubs_on_club_id"
 
   create_table "clubs", :force => true do |t|
     t.string "name"
@@ -28,6 +36,9 @@ ActiveRecord::Schema.define(:version => 20130515192244) do
     t.string  "occupation"
     t.integer "age"
     t.string  "nickname"
+    t.integer "aristocrat_id"
   end
+
+  add_index "servants", ["aristocrat_id"], :name => "index_servants_on_aristocrat_id"
 
 end

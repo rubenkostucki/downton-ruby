@@ -1,17 +1,21 @@
 class Servant <ActiveRecord::Base
 
+  belongs_to :aristocrat
+
   attr_accessible :last_name, :age, :occupation
-  validates_presence_of :last_name, :age
-  validates :age, :inclusion => 16..100
+
+  validates_presence_of :last_name
+
+  validates :age, :inclusion => 16..100, :presence => true
 
   validates :occupation, :inclusion => ["Butler", "Maid", "Cook"]
 
-  validates :nickname, :length => { :minimum => 6 }
+  validates :nickname, :length => { :maximum => 6 }
 
   before_create :automatic_nickname
 
-  def automatic_nickname
-    @nickname = self.last_name[0, 1]
-  end
-
+  private
+    def automatic_nickname
+      self.nickname = self.last_name[0, 1]
+    end
 end
