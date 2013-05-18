@@ -6,7 +6,7 @@ describe Aristocrat do
   it { should have_many(:servants)}
 
   context 'validates first name exist' do
-    it { should validate_presence_of :first_name }
+    it { should validate_presence_of(:first_name) }
   end
 
   context 'validates surname with minimum 10 character' do
@@ -29,7 +29,18 @@ describe Aristocrat do
     it { should_not allow_value("google.com").for(:email) }
   end
 
-  # context 'can get all servants over a certain age' do
-  #   it { should}
-  # end
+  context 'can get all servants over a certain age' do
+    pedro = Servant.create(:last_name => "Pedro", :age => 26, :occupation =>"Butler")
+    yokoko = Servant.create(:last_name => "Yokoko", :age => 27, :occupation =>"Maid")
+
+    aristocrat = Aristocrat.create do |x|
+      x.first_name = "Bruno"
+      x.surname = "Das-GrosseSchnitzer"
+      x.email = "B.Das-GrosseSchnitzer@curryworst.com"
+    end
+
+    aristocrat.
+
+    it { aristocratshould}
+  end
 end

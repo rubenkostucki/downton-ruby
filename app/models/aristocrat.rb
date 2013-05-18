@@ -8,10 +8,10 @@ class Aristocrat < ActiveRecord::Base
 
   validates(:surname, :length => { :minimum => 10, :message => "You are not one of us" }, :format => { :with => /^[a-zA-Z']+-[a-zA-Z']+$/ })
 
-  validates(:email, :format => { :with => /@/ })
+  validates(:email, :format => { :with => /@/ }, :presence => true)
 
 
-  def servants(age)
-
-  end
+  # def servants_over(age)
+  #   if servants.age
+  # end
 end
